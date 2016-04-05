@@ -58,7 +58,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html">SOFOM</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -252,8 +252,10 @@
                     </ul>
                     <!-- /.dropdown-alerts -->
                 </li>
+
                 <!-- /.dropdown -->
                 <li class="dropdown">
+
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
@@ -263,8 +265,6 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 
                         <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 
@@ -291,7 +291,8 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Secciones</a>
+                        {!!link_to('admin/sections', 'Secciones',array('class'=>'fa fa-dashboard fa-fw')) !!}
+                    
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Categorias<span class="fa arrow"></span></a>

@@ -24,7 +24,6 @@ class CreateCmsSectionsTable extends Migration
             $table->dateTime('publish_date');
             $table->boolean('publish');
             $table->text('uri');
-            $table->integer('hits');
             $table->integer('order_by');
             $table->boolean('active');
             $table->integer('register_by');

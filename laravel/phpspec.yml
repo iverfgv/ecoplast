@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: pagina
+        psr4_prefix: pagina
+        src_path: app

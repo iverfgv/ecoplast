@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: tapacar
+        psr4_prefix: tapacar
+        src_path: app

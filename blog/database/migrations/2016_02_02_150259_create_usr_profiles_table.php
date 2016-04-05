@@ -16,7 +16,6 @@ class CreateUsrProfilesTable extends Migration
 
             
             $table->integer('id_login')->unsigned();
-            $table->primary('id_login');
             $table->foreign('id_login')->references('id') ->on('usr_logins');
             $table->string('name',500);
             $table->string('lastname',500);

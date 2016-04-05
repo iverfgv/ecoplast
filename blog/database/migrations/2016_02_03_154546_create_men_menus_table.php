@@ -18,7 +18,7 @@ class CreateMenMenusTable extends Migration
             $table->foreign('id_men_type')->references('id')->on('men_types');
             $table->string('title',250);
             $table->text('description');
-            $table->text('uri');
+            $table->text('uri');            
             $table->integer('order_by');
             $table->boolean('active');
             $table->integer('register_by');

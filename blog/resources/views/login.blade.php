@@ -33,7 +33,7 @@
           </div>
 
           <div class="form-group">
-            {!!Form::submit('Iniciar sesion',['class'=>'btn btn-primary btn-lg btn-block','placeholder'=>'Nombre'])!!}
+            {!!Form::submit('Iniciar sesion',['class'=>'btn btn-primary btn-lg btn-block','placeholder'=>'Iniciar sesion'])!!}
           </div>
       {!!Form::close()!!}
           

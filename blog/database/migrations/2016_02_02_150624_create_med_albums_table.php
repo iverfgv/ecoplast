@@ -13,10 +13,7 @@ class CreateMedAlbumsTable extends Migration
     public function up()
     {
         Schema::create('med_albums', function (Blueprint $table) {
-
             $table->increments('id');
-
-      
             $table->string('title',250);
             $table->text('description');
             $table->integer('order');
@@ -25,7 +22,6 @@ class CreateMedAlbumsTable extends Migration
             $table->dateTime('publish_date');
             $table->boolean('index_page');
             $table->integer('hits');
-            $table->integer('order_by');
             $table->boolean('active');
             $table->integer('register_by');         
             $table->integer('modify_by');

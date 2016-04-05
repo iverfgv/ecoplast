@@ -13,7 +13,8 @@ class CreateUsrLoginsTable extends Migration
     public function up()
     {
         Schema::create('usr_logins', function (Blueprint $table) {
-           $table->increments('id');
+
+            $table->increments('id');
             $table->string('mail',150);
             $table->string('token',100);
             $table->string('passwd',100);

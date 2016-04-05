@@ -29,32 +29,73 @@
 /*Route::group(['middleware' => ['web']], function () {
     //
 });*/
-
+Route::get('login','frontController@login');
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
 
 Route::get('index','frontController@index');
 Route::get('contacto','frontController@contacto');
 Route::get('galeria','frontController@galeria');
 
-Route::get('login','frontController@login');
-
-
-
-
-
 
 
 
 /*************RUTAS DE TYPES Y SECTIOSN ***************/
-Route::get('admin/types','typeController@type');
-Route::resource('types','typeController'); 
-Route::get('admin/sectionsnew','sectiosController@section'); //formulario
-Route::resource('admin/sections','sectiosController@index');      //index catalogo
-Route::resource('sections','sectiosController');            //llamada a store para guardar los datos en la db
+Route::get('admin/typesnew','typeController@type');//abre el formulario para nuevo typo
+Route::resource('types','typeController'); //manda a llamar la funcion store
+
+Route::resource('admin/types','typeController@type');// redirecciona asi mismo despues de guardar
+Route::get('admin/sectionsnew','sectiosController@section'); //formulario sectionsform.blade.php
+Route::resource('admin/sections','sectiosController');      //index. catalogo
+Route::get('admin/sectionedit/{id}','sectiosController@edit');
+Route::put('admin/section/update','sectiosController@update');
+///// ELIMINAR
+Route::get('admin/sectiondel/{id}','sectiosController@delete');
+//ordenar
+Route::get('admin/sectionorder/{id}/{orderBy}/{no}','sectiosController@order');
+////// PUBLICAR
+Route::get('admin/sectionsPriva/{id}/{priv}','sectiosController@privado');
+Route::get('admin/sectionsPublic/{id}/{pub}','sectiosController@publicate');
 /****************************************************/
 
 
-/*********************RUTAS PARA ADMINITRACION DE USUARIO Y SESIONES******/
-Route::get('/','frontController@panel');
-Route::resource('log','LogController'); //ruta para la autentificacion
-Route::resource('usuario','userController'); //ruta para el registro de usuarios
-/***********************************************************************/
+
+
+/*************RUTAS DE ALBUMS Y PICTURES ***************/
+///// Catalogos 
+Route::get('admin/media','MediaController@index');
+Route::resource('admin/media','MediaController');
+///// FORMS
+Route::get('admin/medianew','MediaController@medianew');
+Route::post('admin/media/store','MediaController@store');
+///// EDICION
+Route::get('admin/mediaedit/{id}','MediaController@edit');
+Route::put('admin/media/update','MediaController@update');
+////// ELIMINAR
+Route::get('admin/mediadel/{id}','MediaController@delete');
+////// ORDENAR 
+Route::get('admin/mediaorder/{id}/{orderBy}/{no}','MediaController@order');
+////// PUBLICAR
+Route::get('admin/mediapub/{id}/{pub}','MediaController@publicate');
+/////  INDEX PAGE
+
+
+/*********************rutas de usuario**********************/
+Route::get('/admin', 'HomeController@index');/*pagina principal despues de logearse*/
+Route::resource('usuario','usuarioController');
+Route::get('admin/user', 'usuarioController@index');
+Route::get('admin/userNew', 'usuarioController@create');
+Route::get('admin/userEdit/{id}','usuarioController@edit');
+Route::put('admin/user/update','usuarioController@update');
+Route::get('admin/sectionedit/{id}','sectiosController@edit');
+
+
+/************************roles de usuario*************************/
+Route::get('/admin', 'HomeController@index');/*pagina principal despues de logearse*/
+Route::resource('rol','rolesController');
+Route::get('admin/roles', 'rolesController@index');
+});
+
+Route::get('/','LogController@logout');
+
+
